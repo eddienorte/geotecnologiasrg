@@ -6,9 +6,10 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
-        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -17,13 +18,13 @@
             margin: 0;
         }
         </style>
-        <title></title>
+        <title>http://geotecnologiasrg.webnode.com/</title>
     </head>
     <body>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.js"></script>
         <script src="js/leaflet-svg-shape-markers.min.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
@@ -32,925 +33,54 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="js/leaflet-measure.js"></script>
-        <script src="data/LeptospiroseMaro2016_0.js"></script>
-        <script src="data/LeptospiroseMaro2015_1.js"></script>
-        <script src="data/LeptospiroseFevereiro2016_2.js"></script>
-        <script src="data/Maro_2013_3.js"></script>
-        <script src="data/Maio_2013_4.js"></script>
-        <script src="data/Dezembro_2013_5.js"></script>
-        <script src="data/Junho_2013_6.js"></script>
-        <script src="data/Julho_2013_7.js"></script>
-        <script src="data/Janeiro_2013_8.js"></script>
-        <script src="data/Agosto_2013_9.js"></script>
-        <script src="data/Abril_2013_10.js"></script>
-        <script src="data/UnidadesBasicasdesade_11.js"></script>
-        <script src="data/PlanoDiretorMunicpal_12.js"></script>
-        <script src="data/Bernadeth_13.js"></script>
-        <script src="data/AvPelotas_14.js"></script>
-        <script src="data/Cassino_15.js"></script>
-        <script src="data/Portugal_16.js"></script>
-        <script src="data/Praas_17.js"></script>
-        <script src="data/PolivalentePortugal_18.js"></script>
-        <script src="data/CircularShopping_19.js"></script>
-        <script src="data/CircularCidadeNova_20.js"></script>
-        <script src="data/BuarquedeMacedo_21.js"></script>
-        <script src="data/Bosque_22.js"></script>
-        <script src="data/AvPelotas_23.js"></script>
-        <script src="data/Bernadeth_24.js"></script>
-        <script src="data/Mangueira_25.js"></script>
-        <script src="data/EscolasPblicaseParticulares_26.js"></script>
-        <script src="data/DrogariasMunicipais_27.js"></script>
-        <script src="data/Ruas_28.js"></script>
-        <script src="data/reasdeInterreseSocial_29.js"></script>
-        <script src="data/AtrativosTristicos_30.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/VigilnciaAmbientalLeptospiroseMaro2016_0.js"></script>
+        <script src="data/VigilnciaAmbientalLeptospiroseMaro2015_1.js"></script>
+        <script src="data/VigilnciaAmbientalLeptospiroseFevereiro2016_2.js"></script>
+        <script src="data/VigilnciaAmbientalExogenaMaro2016_3.js"></script>
+        <script src="data/VigiguaAgosto2013_4.js"></script>
+        <script src="data/VigiguaDezembro2013_5.js"></script>
+        <script src="data/VigiguaJulho2013_6.js"></script>
+        <script src="data/VigiguaJunho2013_7.js"></script>
+        <script src="data/VigiguaMaio2013_8.js"></script>
+        <script src="data/VigiguaAbril2013_9.js"></script>
+        <script src="data/VigiguaMaro2013_10.js"></script>
+        <script src="data/VigiguaJaneiro2013_11.js"></script>
+        <script src="data/UnidadesBasicasdesade_12.js"></script>
+        <script src="data/PlanoDiretorMunicpal_13.js"></script>
+        <script src="data/ParadasdenibusBernadeth_14.js"></script>
+        <script src="data/ParadasdenibusAvPelotas_15.js"></script>
+        <script src="data/ParadasdenibusCassino_16.js"></script>
+        <script src="data/ParadasdenibusPortugal_17.js"></script>
+        <script src="data/Praas_18.js"></script>
+        <script src="data/LinhasdenibusPolivalentePortugal_19.js"></script>
+        <script src="data/LinhasdenibusCircularShopping_20.js"></script>
+        <script src="data/LinhasdenibusCircularCidadeNova_21.js"></script>
+        <script src="data/LinhasdenibusBuarquedeMacedo_22.js"></script>
+        <script src="data/LinhasdenibusBosque_23.js"></script>
+        <script src="data/LinhasdenibusAvPelotas_24.js"></script>
+        <script src="data/LinhasdenibusBernadeth_25.js"></script>
+        <script src="data/LinhasdenibusMangueira_26.js"></script>
+        <script src="data/EscolasPblicaseParticulares_27.js"></script>
+        <script src="data/DrogariasMunicipais_28.js"></script>
+        <script src="data/CadastrodeLogradouros_29.js"></script>
+        <script src="data/reasdeInterreseSocial_30.js"></script>
+        <script src="data/AtrativosTristicos_31.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        })
+        }).fitBounds([[-32.1360982426,-52.6473327538],[-31.9681486426,-51.9537888783]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
-        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
-        var measureControl = new L.Control.Measure({
-            position: 'topleft',
-            primaryLengthUnit: 'meters',
-            secondaryLengthUnit: 'kilometers',
-            primaryAreaUnit: 'sqmeters',
-            secondaryAreaUnit: 'hectares'
-        });
-        measureControl.addTo(map);
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .innerHTML = '';
-        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
-        .className += ' fas fa-ruler';
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
         function setBounds() {
-            if (bounds_group.getLayers().length) {
-                map.fitBounds(bounds_group.getBounds());
-            }
         }
-        function pop_LeptospiroseMaro2016_0(feature, layer) {
-        }
-
-        function style_LeptospiroseMaro2016_0_0() {
-            return {
-                pane: 'pane_LeptospiroseMaro2016_0',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,168,4,1.0)',
-            }
-        }
-        map.createPane('pane_LeptospiroseMaro2016_0');
-        map.getPane('pane_LeptospiroseMaro2016_0').style.zIndex = 400;
-        map.getPane('pane_LeptospiroseMaro2016_0').style['mix-blend-mode'] = 'normal';
-        var layer_LeptospiroseMaro2016_0 = new L.geoJson(json_LeptospiroseMaro2016_0, {
-            attribution: '',
-            pane: 'pane_LeptospiroseMaro2016_0',
-            onEachFeature: pop_LeptospiroseMaro2016_0,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.shapeMarker(latlng, style_LeptospiroseMaro2016_0_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_LeptospiroseMaro2016_0);
-        function pop_LeptospiroseMaro2015_1(feature, layer) {
-        }
-
-        function style_LeptospiroseMaro2015_1_0() {
-            return {
-                pane: 'pane_LeptospiroseMaro2015_1',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,168,4,1.0)',
-            }
-        }
-        map.createPane('pane_LeptospiroseMaro2015_1');
-        map.getPane('pane_LeptospiroseMaro2015_1').style.zIndex = 401;
-        map.getPane('pane_LeptospiroseMaro2015_1').style['mix-blend-mode'] = 'normal';
-        var layer_LeptospiroseMaro2015_1 = new L.geoJson(json_LeptospiroseMaro2015_1, {
-            attribution: '',
-            pane: 'pane_LeptospiroseMaro2015_1',
-            onEachFeature: pop_LeptospiroseMaro2015_1,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.shapeMarker(latlng, style_LeptospiroseMaro2015_1_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_LeptospiroseMaro2015_1);
-        function pop_LeptospiroseFevereiro2016_2(feature, layer) {
-        }
-
-        function style_LeptospiroseFevereiro2016_2_0() {
-            return {
-                pane: 'pane_LeptospiroseFevereiro2016_2',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,168,4,1.0)',
-            }
-        }
-        map.createPane('pane_LeptospiroseFevereiro2016_2');
-        map.getPane('pane_LeptospiroseFevereiro2016_2').style.zIndex = 402;
-        map.getPane('pane_LeptospiroseFevereiro2016_2').style['mix-blend-mode'] = 'normal';
-        var layer_LeptospiroseFevereiro2016_2 = new L.geoJson(json_LeptospiroseFevereiro2016_2, {
-            attribution: '',
-            pane: 'pane_LeptospiroseFevereiro2016_2',
-            onEachFeature: pop_LeptospiroseFevereiro2016_2,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.shapeMarker(latlng, style_LeptospiroseFevereiro2016_2_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_LeptospiroseFevereiro2016_2);
-        function pop_Maro_2013_3(feature, layer) {
-        }
-
-        function style_Maro_2013_3_0() {
-            return {
-                pane: 'pane_Maro_2013_3',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/water-15_svg.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-            }
-        }
-        map.createPane('pane_Maro_2013_3');
-        map.getPane('pane_Maro_2013_3').style.zIndex = 403;
-        map.getPane('pane_Maro_2013_3').style['mix-blend-mode'] = 'normal';
-        var layer_Maro_2013_3 = new L.geoJson(json_Maro_2013_3, {
-            attribution: '',
-            pane: 'pane_Maro_2013_3',
-            onEachFeature: pop_Maro_2013_3,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Maro_2013_3_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Maro_2013_3);
-        function pop_Maio_2013_4(feature, layer) {
-        }
-
-        function style_Maio_2013_4_0() {
-            return {
-                pane: 'pane_Maio_2013_4',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/water-15_svg.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-            }
-        }
-        map.createPane('pane_Maio_2013_4');
-        map.getPane('pane_Maio_2013_4').style.zIndex = 404;
-        map.getPane('pane_Maio_2013_4').style['mix-blend-mode'] = 'normal';
-        var layer_Maio_2013_4 = new L.geoJson(json_Maio_2013_4, {
-            attribution: '',
-            pane: 'pane_Maio_2013_4',
-            onEachFeature: pop_Maio_2013_4,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Maio_2013_4_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Maio_2013_4);
-        function pop_Dezembro_2013_5(feature, layer) {
-        }
-
-        function style_Dezembro_2013_5_0() {
-            return {
-                pane: 'pane_Dezembro_2013_5',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/water-15_svg.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-            }
-        }
-        map.createPane('pane_Dezembro_2013_5');
-        map.getPane('pane_Dezembro_2013_5').style.zIndex = 405;
-        map.getPane('pane_Dezembro_2013_5').style['mix-blend-mode'] = 'normal';
-        var layer_Dezembro_2013_5 = new L.geoJson(json_Dezembro_2013_5, {
-            attribution: '',
-            pane: 'pane_Dezembro_2013_5',
-            onEachFeature: pop_Dezembro_2013_5,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Dezembro_2013_5_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Dezembro_2013_5);
-        function pop_Junho_2013_6(feature, layer) {
-        }
-
-        function style_Junho_2013_6_0() {
-            return {
-                pane: 'pane_Junho_2013_6',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/water-15_svg.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-            }
-        }
-        map.createPane('pane_Junho_2013_6');
-        map.getPane('pane_Junho_2013_6').style.zIndex = 406;
-        map.getPane('pane_Junho_2013_6').style['mix-blend-mode'] = 'normal';
-        var layer_Junho_2013_6 = new L.geoJson(json_Junho_2013_6, {
-            attribution: '',
-            pane: 'pane_Junho_2013_6',
-            onEachFeature: pop_Junho_2013_6,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Junho_2013_6_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Junho_2013_6);
-        function pop_Julho_2013_7(feature, layer) {
-        }
-
-        function style_Julho_2013_7_0() {
-            return {
-                pane: 'pane_Julho_2013_7',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/water-15_svg.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-            }
-        }
-        map.createPane('pane_Julho_2013_7');
-        map.getPane('pane_Julho_2013_7').style.zIndex = 407;
-        map.getPane('pane_Julho_2013_7').style['mix-blend-mode'] = 'normal';
-        var layer_Julho_2013_7 = new L.geoJson(json_Julho_2013_7, {
-            attribution: '',
-            pane: 'pane_Julho_2013_7',
-            onEachFeature: pop_Julho_2013_7,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Julho_2013_7_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Julho_2013_7);
-        function pop_Janeiro_2013_8(feature, layer) {
-        }
-
-        function style_Janeiro_2013_8_0() {
-            return {
-                pane: 'pane_Janeiro_2013_8',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/water-15_svg.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-            }
-        }
-        map.createPane('pane_Janeiro_2013_8');
-        map.getPane('pane_Janeiro_2013_8').style.zIndex = 408;
-        map.getPane('pane_Janeiro_2013_8').style['mix-blend-mode'] = 'normal';
-        var layer_Janeiro_2013_8 = new L.geoJson(json_Janeiro_2013_8, {
-            attribution: '',
-            pane: 'pane_Janeiro_2013_8',
-            onEachFeature: pop_Janeiro_2013_8,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Janeiro_2013_8_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Janeiro_2013_8);
-        function pop_Agosto_2013_9(feature, layer) {
-        }
-
-        function style_Agosto_2013_9_0() {
-            return {
-                pane: 'pane_Agosto_2013_9',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/water-15_svg.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-            }
-        }
-        map.createPane('pane_Agosto_2013_9');
-        map.getPane('pane_Agosto_2013_9').style.zIndex = 409;
-        map.getPane('pane_Agosto_2013_9').style['mix-blend-mode'] = 'normal';
-        var layer_Agosto_2013_9 = new L.geoJson(json_Agosto_2013_9, {
-            attribution: '',
-            pane: 'pane_Agosto_2013_9',
-            onEachFeature: pop_Agosto_2013_9,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Agosto_2013_9_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Agosto_2013_9);
-        function pop_Abril_2013_10(feature, layer) {
-        }
-
-        function style_Abril_2013_10_0() {
-            return {
-                pane: 'pane_Abril_2013_10',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/water-15_svg.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-            }
-        }
-        map.createPane('pane_Abril_2013_10');
-        map.getPane('pane_Abril_2013_10').style.zIndex = 410;
-        map.getPane('pane_Abril_2013_10').style['mix-blend-mode'] = 'normal';
-        var layer_Abril_2013_10 = new L.geoJson(json_Abril_2013_10, {
-            attribution: '',
-            pane: 'pane_Abril_2013_10',
-            onEachFeature: pop_Abril_2013_10,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Abril_2013_10_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Abril_2013_10);
-        function pop_UnidadesBasicasdesade_11(feature, layer) {
-        }
-
-        function style_UnidadesBasicasdesade_11_0() {
-            return {
-                pane: 'pane_UnidadesBasicasdesade_11',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/hospital_16.svg',
-            iconSize: [19.0, 19.0]
-        }),
-            }
-        }
-        map.createPane('pane_UnidadesBasicasdesade_11');
-        map.getPane('pane_UnidadesBasicasdesade_11').style.zIndex = 411;
-        map.getPane('pane_UnidadesBasicasdesade_11').style['mix-blend-mode'] = 'normal';
-        var layer_UnidadesBasicasdesade_11 = new L.geoJson(json_UnidadesBasicasdesade_11, {
-            attribution: '',
-            pane: 'pane_UnidadesBasicasdesade_11',
-            onEachFeature: pop_UnidadesBasicasdesade_11,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_UnidadesBasicasdesade_11_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_UnidadesBasicasdesade_11);
-        function pop_PlanoDiretorMunicpal_12(feature, layer) {
-        }
-
-        function style_PlanoDiretorMunicpal_12_0() {
-            return {
-                pane: 'pane_PlanoDiretorMunicpal_12',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(234,171,116,1.0)',
-            }
-        }
-        map.createPane('pane_PlanoDiretorMunicpal_12');
-        map.getPane('pane_PlanoDiretorMunicpal_12').style.zIndex = 412;
-        map.getPane('pane_PlanoDiretorMunicpal_12').style['mix-blend-mode'] = 'normal';
-        var layer_PlanoDiretorMunicpal_12 = new L.geoJson(json_PlanoDiretorMunicpal_12, {
-            attribution: '',
-            pane: 'pane_PlanoDiretorMunicpal_12',
-            onEachFeature: pop_PlanoDiretorMunicpal_12,
-            style: style_PlanoDiretorMunicpal_12_0,
-        });
-        bounds_group.addLayer(layer_PlanoDiretorMunicpal_12);
-        function pop_Bernadeth_13(feature, layer) {
-        }
-
-        function style_Bernadeth_13_0() {
-            return {
-                pane: 'pane_Bernadeth_13',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/bus-15_svg.svg',
-            iconSize: [19.0, 19.0]
-        }),
-            }
-        }
-        map.createPane('pane_Bernadeth_13');
-        map.getPane('pane_Bernadeth_13').style.zIndex = 413;
-        map.getPane('pane_Bernadeth_13').style['mix-blend-mode'] = 'normal';
-        var layer_Bernadeth_13 = new L.geoJson(json_Bernadeth_13, {
-            attribution: '',
-            pane: 'pane_Bernadeth_13',
-            onEachFeature: pop_Bernadeth_13,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Bernadeth_13_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Bernadeth_13);
-        function pop_AvPelotas_14(feature, layer) {
-        }
-
-        function style_AvPelotas_14_0() {
-            return {
-                pane: 'pane_AvPelotas_14',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/bus-15_svg.svg',
-            iconSize: [19.0, 19.0]
-        }),
-            }
-        }
-        map.createPane('pane_AvPelotas_14');
-        map.getPane('pane_AvPelotas_14').style.zIndex = 414;
-        map.getPane('pane_AvPelotas_14').style['mix-blend-mode'] = 'normal';
-        var layer_AvPelotas_14 = new L.geoJson(json_AvPelotas_14, {
-            attribution: '',
-            pane: 'pane_AvPelotas_14',
-            onEachFeature: pop_AvPelotas_14,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_AvPelotas_14_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_AvPelotas_14);
-        function pop_Cassino_15(feature, layer) {
-        }
-
-        function style_Cassino_15_0() {
-            return {
-                pane: 'pane_Cassino_15',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/bus-15_svg.svg',
-            iconSize: [19.0, 19.0]
-        }),
-            }
-        }
-        map.createPane('pane_Cassino_15');
-        map.getPane('pane_Cassino_15').style.zIndex = 415;
-        map.getPane('pane_Cassino_15').style['mix-blend-mode'] = 'normal';
-        var layer_Cassino_15 = new L.geoJson(json_Cassino_15, {
-            attribution: '',
-            pane: 'pane_Cassino_15',
-            onEachFeature: pop_Cassino_15,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Cassino_15_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Cassino_15);
-        function pop_Portugal_16(feature, layer) {
-        }
-
-        function style_Portugal_16_0() {
-            return {
-                pane: 'pane_Portugal_16',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/bus-15_svg.svg',
-            iconSize: [19.0, 19.0]
-        }),
-            }
-        }
-        map.createPane('pane_Portugal_16');
-        map.getPane('pane_Portugal_16').style.zIndex = 416;
-        map.getPane('pane_Portugal_16').style['mix-blend-mode'] = 'normal';
-        var layer_Portugal_16 = new L.geoJson(json_Portugal_16, {
-            attribution: '',
-            pane: 'pane_Portugal_16',
-            onEachFeature: pop_Portugal_16,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Portugal_16_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Portugal_16);
-        function pop_Praas_17(feature, layer) {
-        }
-
-        function style_Praas_17_0() {
-            return {
-                pane: 'pane_Praas_17',
-        rotationAngle: 0.00872665,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/park-11_svg.svg',
-            iconSize: [19.0, 19.0]
-        }),
-            }
-        }
-        map.createPane('pane_Praas_17');
-        map.getPane('pane_Praas_17').style.zIndex = 417;
-        map.getPane('pane_Praas_17').style['mix-blend-mode'] = 'normal';
-        var layer_Praas_17 = new L.geoJson(json_Praas_17, {
-            attribution: '',
-            pane: 'pane_Praas_17',
-            onEachFeature: pop_Praas_17,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Praas_17_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Praas_17);
-        function pop_PolivalentePortugal_18(feature, layer) {
-        }
-
-        function style_PolivalentePortugal_18_0() {
-            return {
-                pane: 'pane_PolivalentePortugal_18',
-                opacity: 1,
-                color: 'rgba(255,0,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_PolivalentePortugal_18');
-        map.getPane('pane_PolivalentePortugal_18').style.zIndex = 418;
-        map.getPane('pane_PolivalentePortugal_18').style['mix-blend-mode'] = 'normal';
-        var layer_PolivalentePortugal_18 = new L.geoJson(json_PolivalentePortugal_18, {
-            attribution: '',
-            pane: 'pane_PolivalentePortugal_18',
-            onEachFeature: pop_PolivalentePortugal_18,
-            style: style_PolivalentePortugal_18_0,
-        });
-        bounds_group.addLayer(layer_PolivalentePortugal_18);
-        function pop_CircularShopping_19(feature, layer) {
-        }
-
-        function style_CircularShopping_19_0() {
-            return {
-                pane: 'pane_CircularShopping_19',
-                opacity: 1,
-                color: 'rgba(255,0,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_CircularShopping_19');
-        map.getPane('pane_CircularShopping_19').style.zIndex = 419;
-        map.getPane('pane_CircularShopping_19').style['mix-blend-mode'] = 'normal';
-        var layer_CircularShopping_19 = new L.geoJson(json_CircularShopping_19, {
-            attribution: '',
-            pane: 'pane_CircularShopping_19',
-            onEachFeature: pop_CircularShopping_19,
-            style: style_CircularShopping_19_0,
-        });
-        bounds_group.addLayer(layer_CircularShopping_19);
-        function pop_CircularCidadeNova_20(feature, layer) {
-        }
-
-        function style_CircularCidadeNova_20_0() {
-            return {
-                pane: 'pane_CircularCidadeNova_20',
-                opacity: 1,
-                color: 'rgba(255,0,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_CircularCidadeNova_20');
-        map.getPane('pane_CircularCidadeNova_20').style.zIndex = 420;
-        map.getPane('pane_CircularCidadeNova_20').style['mix-blend-mode'] = 'normal';
-        var layer_CircularCidadeNova_20 = new L.geoJson(json_CircularCidadeNova_20, {
-            attribution: '',
-            pane: 'pane_CircularCidadeNova_20',
-            onEachFeature: pop_CircularCidadeNova_20,
-            style: style_CircularCidadeNova_20_0,
-        });
-        bounds_group.addLayer(layer_CircularCidadeNova_20);
-        function pop_BuarquedeMacedo_21(feature, layer) {
-        }
-
-        function style_BuarquedeMacedo_21_0() {
-            return {
-                pane: 'pane_BuarquedeMacedo_21',
-                opacity: 1,
-                color: 'rgba(255,0,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_BuarquedeMacedo_21');
-        map.getPane('pane_BuarquedeMacedo_21').style.zIndex = 421;
-        map.getPane('pane_BuarquedeMacedo_21').style['mix-blend-mode'] = 'normal';
-        var layer_BuarquedeMacedo_21 = new L.geoJson(json_BuarquedeMacedo_21, {
-            attribution: '',
-            pane: 'pane_BuarquedeMacedo_21',
-            onEachFeature: pop_BuarquedeMacedo_21,
-            style: style_BuarquedeMacedo_21_0,
-        });
-        bounds_group.addLayer(layer_BuarquedeMacedo_21);
-        function pop_Bosque_22(feature, layer) {
-        }
-
-        function style_Bosque_22_0() {
-            return {
-                pane: 'pane_Bosque_22',
-                opacity: 1,
-                color: 'rgba(255,0,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_Bosque_22');
-        map.getPane('pane_Bosque_22').style.zIndex = 422;
-        map.getPane('pane_Bosque_22').style['mix-blend-mode'] = 'normal';
-        var layer_Bosque_22 = new L.geoJson(json_Bosque_22, {
-            attribution: '',
-            pane: 'pane_Bosque_22',
-            onEachFeature: pop_Bosque_22,
-            style: style_Bosque_22_0,
-        });
-        bounds_group.addLayer(layer_Bosque_22);
-        function pop_AvPelotas_23(feature, layer) {
-        }
-
-        function style_AvPelotas_23_0() {
-            return {
-                pane: 'pane_AvPelotas_23',
-                opacity: 1,
-                color: 'rgba(255,0,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_AvPelotas_23');
-        map.getPane('pane_AvPelotas_23').style.zIndex = 423;
-        map.getPane('pane_AvPelotas_23').style['mix-blend-mode'] = 'normal';
-        var layer_AvPelotas_23 = new L.geoJson(json_AvPelotas_23, {
-            attribution: '',
-            pane: 'pane_AvPelotas_23',
-            onEachFeature: pop_AvPelotas_23,
-            style: style_AvPelotas_23_0,
-        });
-        bounds_group.addLayer(layer_AvPelotas_23);
-        function pop_Bernadeth_24(feature, layer) {
-        }
-
-        function style_Bernadeth_24_0() {
-            return {
-                pane: 'pane_Bernadeth_24',
-                opacity: 1,
-                color: 'rgba(255,0,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_Bernadeth_24');
-        map.getPane('pane_Bernadeth_24').style.zIndex = 424;
-        map.getPane('pane_Bernadeth_24').style['mix-blend-mode'] = 'normal';
-        var layer_Bernadeth_24 = new L.geoJson(json_Bernadeth_24, {
-            attribution: '',
-            pane: 'pane_Bernadeth_24',
-            onEachFeature: pop_Bernadeth_24,
-            style: style_Bernadeth_24_0,
-        });
-        bounds_group.addLayer(layer_Bernadeth_24);
-        function pop_Mangueira_25(feature, layer) {
-        }
-
-        function style_Mangueira_25_0() {
-            return {
-                pane: 'pane_Mangueira_25',
-                opacity: 1,
-                color: 'rgba(255,0,255,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_Mangueira_25');
-        map.getPane('pane_Mangueira_25').style.zIndex = 425;
-        map.getPane('pane_Mangueira_25').style['mix-blend-mode'] = 'normal';
-        var layer_Mangueira_25 = new L.geoJson(json_Mangueira_25, {
-            attribution: '',
-            pane: 'pane_Mangueira_25',
-            onEachFeature: pop_Mangueira_25,
-            style: style_Mangueira_25_0,
-        });
-        bounds_group.addLayer(layer_Mangueira_25);
-        function pop_EscolasPblicaseParticulares_26(feature, layer) {
-        }
-
-        function style_EscolasPblicaseParticulares_26_0() {
-            return {
-                pane: 'pane_EscolasPblicaseParticulares_26',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/college-15_svg.svg',
-            iconSize: [19.0, 19.0]
-        }),
-            }
-        }
-        map.createPane('pane_EscolasPblicaseParticulares_26');
-        map.getPane('pane_EscolasPblicaseParticulares_26').style.zIndex = 426;
-        map.getPane('pane_EscolasPblicaseParticulares_26').style['mix-blend-mode'] = 'normal';
-        var layer_EscolasPblicaseParticulares_26 = new L.geoJson(json_EscolasPblicaseParticulares_26, {
-            attribution: '',
-            pane: 'pane_EscolasPblicaseParticulares_26',
-            onEachFeature: pop_EscolasPblicaseParticulares_26,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_EscolasPblicaseParticulares_26_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_EscolasPblicaseParticulares_26);
-        function pop_DrogariasMunicipais_27(feature, layer) {
-        }
-
-        function style_DrogariasMunicipais_27_0() {
-            return {
-                pane: 'pane_DrogariasMunicipais_27',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/doctors.16.svg',
-            iconSize: [19.0, 19.0]
-        }),
-            }
-        }
-        map.createPane('pane_DrogariasMunicipais_27');
-        map.getPane('pane_DrogariasMunicipais_27').style.zIndex = 427;
-        map.getPane('pane_DrogariasMunicipais_27').style['mix-blend-mode'] = 'normal';
-        var layer_DrogariasMunicipais_27 = new L.geoJson(json_DrogariasMunicipais_27, {
-            attribution: '',
-            pane: 'pane_DrogariasMunicipais_27',
-            onEachFeature: pop_DrogariasMunicipais_27,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_DrogariasMunicipais_27_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_DrogariasMunicipais_27);
-        function pop_Ruas_28(feature, layer) {
-        }
-
-        function style_Ruas_28_0() {
-            return {
-                pane: 'pane_Ruas_28',
-                opacity: 1,
-                color: 'rgba(255,13,49,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_Ruas_28');
-        map.getPane('pane_Ruas_28').style.zIndex = 428;
-        map.getPane('pane_Ruas_28').style['mix-blend-mode'] = 'normal';
-        var layer_Ruas_28 = new L.geoJson(json_Ruas_28, {
-            attribution: '',
-            pane: 'pane_Ruas_28',
-            onEachFeature: pop_Ruas_28,
-            style: style_Ruas_28_0,
-        });
-        bounds_group.addLayer(layer_Ruas_28);
-        function pop_reasdeInterreseSocial_29(feature, layer) {
-        }
-
-        function style_reasdeInterreseSocial_29_0() {
-            return {
-                pane: 'pane_reasdeInterreseSocial_29',
-                opacity: 1,
-                color: 'rgba(128,152,72,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(186,221,105,1.0)',
-            }
-        }
-        map.createPane('pane_reasdeInterreseSocial_29');
-        map.getPane('pane_reasdeInterreseSocial_29').style.zIndex = 429;
-        map.getPane('pane_reasdeInterreseSocial_29').style['mix-blend-mode'] = 'normal';
-        var layer_reasdeInterreseSocial_29 = new L.geoJson(json_reasdeInterreseSocial_29, {
-            attribution: '',
-            pane: 'pane_reasdeInterreseSocial_29',
-            onEachFeature: pop_reasdeInterreseSocial_29,
-            style: style_reasdeInterreseSocial_29_0,
-        });
-        bounds_group.addLayer(layer_reasdeInterreseSocial_29);
-        function pop_AtrativosTristicos_30(feature, layer) {
+        function pop_VigilnciaAmbientalLeptospiroseMaro2016_0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
@@ -959,44 +89,1275 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_AtrativosTristicos_30_0() {
+        function style_VigilnciaAmbientalLeptospiroseMaro2016_0_0() {
             return {
-                pane: 'pane_AtrativosTristicos_30',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/amenity=restaurant.svg',
-            iconSize: [19.0, 19.0]
-        }),
+                pane: 'pane_VigilnciaAmbientalLeptospiroseMaro2016_0',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
             }
         }
-        map.createPane('pane_AtrativosTristicos_30');
-        map.getPane('pane_AtrativosTristicos_30').style.zIndex = 430;
-        map.getPane('pane_AtrativosTristicos_30').style['mix-blend-mode'] = 'normal';
-        var layer_AtrativosTristicos_30 = new L.geoJson(json_AtrativosTristicos_30, {
-            attribution: '',
-            pane: 'pane_AtrativosTristicos_30',
-            onEachFeature: pop_AtrativosTristicos_30,
+        map.createPane('pane_VigilnciaAmbientalLeptospiroseMaro2016_0');
+        map.getPane('pane_VigilnciaAmbientalLeptospiroseMaro2016_0').style.zIndex = 400;
+        map.getPane('pane_VigilnciaAmbientalLeptospiroseMaro2016_0').style['mix-blend-mode'] = 'normal';
+        var layer_VigilnciaAmbientalLeptospiroseMaro2016_0 = new L.geoJson(json_VigilnciaAmbientalLeptospiroseMaro2016_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigilnciaAmbientalLeptospiroseMaro2016_0',
+            onEachFeature: pop_VigilnciaAmbientalLeptospiroseMaro2016_0,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_AtrativosTristicos_30_0(feature));
+                return L.shapeMarker(latlng, style_VigilnciaAmbientalLeptospiroseMaro2016_0_0(feature));
             },
         });
-        bounds_group.addLayer(layer_AtrativosTristicos_30);
-        map.addLayer(layer_AtrativosTristicos_30);
-        var layer_GoogleSatellite_31 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            opacity: 1.0
+        var cluster_VigilnciaAmbientalLeptospiroseMaro2016_0 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigilnciaAmbientalLeptospiroseMaro2016_0.addLayer(layer_VigilnciaAmbientalLeptospiroseMaro2016_0);
+
+        bounds_group.addLayer(layer_VigilnciaAmbientalLeptospiroseMaro2016_0);
+        function pop_VigilnciaAmbientalLeptospiroseMaro2015_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigilnciaAmbientalLeptospiroseMaro2015_1_0() {
+            return {
+                pane: 'pane_VigilnciaAmbientalLeptospiroseMaro2015_1',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+            }
+        }
+        map.createPane('pane_VigilnciaAmbientalLeptospiroseMaro2015_1');
+        map.getPane('pane_VigilnciaAmbientalLeptospiroseMaro2015_1').style.zIndex = 401;
+        map.getPane('pane_VigilnciaAmbientalLeptospiroseMaro2015_1').style['mix-blend-mode'] = 'normal';
+        var layer_VigilnciaAmbientalLeptospiroseMaro2015_1 = new L.geoJson(json_VigilnciaAmbientalLeptospiroseMaro2015_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigilnciaAmbientalLeptospiroseMaro2015_1',
+            onEachFeature: pop_VigilnciaAmbientalLeptospiroseMaro2015_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigilnciaAmbientalLeptospiroseMaro2015_1_0(feature));
+            },
         });
-        layer_GoogleSatellite_31.addTo(map);
-        var layer_OpenStreetMap_32 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            opacity: 1.0
+        var cluster_VigilnciaAmbientalLeptospiroseMaro2015_1 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigilnciaAmbientalLeptospiroseMaro2015_1.addLayer(layer_VigilnciaAmbientalLeptospiroseMaro2015_1);
+
+        bounds_group.addLayer(layer_VigilnciaAmbientalLeptospiroseMaro2015_1);
+        function pop_VigilnciaAmbientalLeptospiroseFevereiro2016_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigilnciaAmbientalLeptospiroseFevereiro2016_2_0() {
+            return {
+                pane: 'pane_VigilnciaAmbientalLeptospiroseFevereiro2016_2',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+            }
+        }
+        map.createPane('pane_VigilnciaAmbientalLeptospiroseFevereiro2016_2');
+        map.getPane('pane_VigilnciaAmbientalLeptospiroseFevereiro2016_2').style.zIndex = 402;
+        map.getPane('pane_VigilnciaAmbientalLeptospiroseFevereiro2016_2').style['mix-blend-mode'] = 'normal';
+        var layer_VigilnciaAmbientalLeptospiroseFevereiro2016_2 = new L.geoJson(json_VigilnciaAmbientalLeptospiroseFevereiro2016_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigilnciaAmbientalLeptospiroseFevereiro2016_2',
+            onEachFeature: pop_VigilnciaAmbientalLeptospiroseFevereiro2016_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigilnciaAmbientalLeptospiroseFevereiro2016_2_0(feature));
+            },
         });
-        layer_OpenStreetMap_32.addTo(map);
+        var cluster_VigilnciaAmbientalLeptospiroseFevereiro2016_2 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigilnciaAmbientalLeptospiroseFevereiro2016_2.addLayer(layer_VigilnciaAmbientalLeptospiroseFevereiro2016_2);
+
+        bounds_group.addLayer(layer_VigilnciaAmbientalLeptospiroseFevereiro2016_2);
+        function pop_VigilnciaAmbientalExogenaMaro2016_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigilnciaAmbientalExogenaMaro2016_3_0() {
+            return {
+                pane: 'pane_VigilnciaAmbientalExogenaMaro2016_3',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+            }
+        }
+        map.createPane('pane_VigilnciaAmbientalExogenaMaro2016_3');
+        map.getPane('pane_VigilnciaAmbientalExogenaMaro2016_3').style.zIndex = 403;
+        map.getPane('pane_VigilnciaAmbientalExogenaMaro2016_3').style['mix-blend-mode'] = 'normal';
+        var layer_VigilnciaAmbientalExogenaMaro2016_3 = new L.geoJson(json_VigilnciaAmbientalExogenaMaro2016_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigilnciaAmbientalExogenaMaro2016_3',
+            onEachFeature: pop_VigilnciaAmbientalExogenaMaro2016_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigilnciaAmbientalExogenaMaro2016_3_0(feature));
+            },
+        });
+        var cluster_VigilnciaAmbientalExogenaMaro2016_3 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigilnciaAmbientalExogenaMaro2016_3.addLayer(layer_VigilnciaAmbientalExogenaMaro2016_3);
+
+        bounds_group.addLayer(layer_VigilnciaAmbientalExogenaMaro2016_3);
+        function pop_VigiguaAgosto2013_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigiguaAgosto2013_4_0() {
+            return {
+                pane: 'pane_VigiguaAgosto2013_4',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_VigiguaAgosto2013_4');
+        map.getPane('pane_VigiguaAgosto2013_4').style.zIndex = 404;
+        map.getPane('pane_VigiguaAgosto2013_4').style['mix-blend-mode'] = 'normal';
+        var layer_VigiguaAgosto2013_4 = new L.geoJson(json_VigiguaAgosto2013_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigiguaAgosto2013_4',
+            onEachFeature: pop_VigiguaAgosto2013_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigiguaAgosto2013_4_0(feature));
+            },
+        });
+        var cluster_VigiguaAgosto2013_4 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigiguaAgosto2013_4.addLayer(layer_VigiguaAgosto2013_4);
+
+        bounds_group.addLayer(layer_VigiguaAgosto2013_4);
+        function pop_VigiguaDezembro2013_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigiguaDezembro2013_5_0() {
+            return {
+                pane: 'pane_VigiguaDezembro2013_5',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_VigiguaDezembro2013_5');
+        map.getPane('pane_VigiguaDezembro2013_5').style.zIndex = 405;
+        map.getPane('pane_VigiguaDezembro2013_5').style['mix-blend-mode'] = 'normal';
+        var layer_VigiguaDezembro2013_5 = new L.geoJson(json_VigiguaDezembro2013_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigiguaDezembro2013_5',
+            onEachFeature: pop_VigiguaDezembro2013_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigiguaDezembro2013_5_0(feature));
+            },
+        });
+        var cluster_VigiguaDezembro2013_5 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigiguaDezembro2013_5.addLayer(layer_VigiguaDezembro2013_5);
+
+        bounds_group.addLayer(layer_VigiguaDezembro2013_5);
+        function pop_VigiguaJulho2013_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigiguaJulho2013_6_0() {
+            return {
+                pane: 'pane_VigiguaJulho2013_6',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_VigiguaJulho2013_6');
+        map.getPane('pane_VigiguaJulho2013_6').style.zIndex = 406;
+        map.getPane('pane_VigiguaJulho2013_6').style['mix-blend-mode'] = 'normal';
+        var layer_VigiguaJulho2013_6 = new L.geoJson(json_VigiguaJulho2013_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigiguaJulho2013_6',
+            onEachFeature: pop_VigiguaJulho2013_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigiguaJulho2013_6_0(feature));
+            },
+        });
+        var cluster_VigiguaJulho2013_6 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigiguaJulho2013_6.addLayer(layer_VigiguaJulho2013_6);
+
+        bounds_group.addLayer(layer_VigiguaJulho2013_6);
+        function pop_VigiguaJunho2013_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigiguaJunho2013_7_0() {
+            return {
+                pane: 'pane_VigiguaJunho2013_7',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_VigiguaJunho2013_7');
+        map.getPane('pane_VigiguaJunho2013_7').style.zIndex = 407;
+        map.getPane('pane_VigiguaJunho2013_7').style['mix-blend-mode'] = 'normal';
+        var layer_VigiguaJunho2013_7 = new L.geoJson(json_VigiguaJunho2013_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigiguaJunho2013_7',
+            onEachFeature: pop_VigiguaJunho2013_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigiguaJunho2013_7_0(feature));
+            },
+        });
+        var cluster_VigiguaJunho2013_7 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigiguaJunho2013_7.addLayer(layer_VigiguaJunho2013_7);
+
+        bounds_group.addLayer(layer_VigiguaJunho2013_7);
+        function pop_VigiguaMaio2013_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigiguaMaio2013_8_0() {
+            return {
+                pane: 'pane_VigiguaMaio2013_8',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_VigiguaMaio2013_8');
+        map.getPane('pane_VigiguaMaio2013_8').style.zIndex = 408;
+        map.getPane('pane_VigiguaMaio2013_8').style['mix-blend-mode'] = 'normal';
+        var layer_VigiguaMaio2013_8 = new L.geoJson(json_VigiguaMaio2013_8, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigiguaMaio2013_8',
+            onEachFeature: pop_VigiguaMaio2013_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigiguaMaio2013_8_0(feature));
+            },
+        });
+        var cluster_VigiguaMaio2013_8 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigiguaMaio2013_8.addLayer(layer_VigiguaMaio2013_8);
+
+        bounds_group.addLayer(layer_VigiguaMaio2013_8);
+        function pop_VigiguaAbril2013_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigiguaAbril2013_9_0() {
+            return {
+                pane: 'pane_VigiguaAbril2013_9',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_VigiguaAbril2013_9');
+        map.getPane('pane_VigiguaAbril2013_9').style.zIndex = 409;
+        map.getPane('pane_VigiguaAbril2013_9').style['mix-blend-mode'] = 'normal';
+        var layer_VigiguaAbril2013_9 = new L.geoJson(json_VigiguaAbril2013_9, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigiguaAbril2013_9',
+            onEachFeature: pop_VigiguaAbril2013_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigiguaAbril2013_9_0(feature));
+            },
+        });
+        var cluster_VigiguaAbril2013_9 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigiguaAbril2013_9.addLayer(layer_VigiguaAbril2013_9);
+
+        bounds_group.addLayer(layer_VigiguaAbril2013_9);
+        function pop_VigiguaMaro2013_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigiguaMaro2013_10_0() {
+            return {
+                pane: 'pane_VigiguaMaro2013_10',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_VigiguaMaro2013_10');
+        map.getPane('pane_VigiguaMaro2013_10').style.zIndex = 410;
+        map.getPane('pane_VigiguaMaro2013_10').style['mix-blend-mode'] = 'normal';
+        var layer_VigiguaMaro2013_10 = new L.geoJson(json_VigiguaMaro2013_10, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigiguaMaro2013_10',
+            onEachFeature: pop_VigiguaMaro2013_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigiguaMaro2013_10_0(feature));
+            },
+        });
+        var cluster_VigiguaMaro2013_10 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigiguaMaro2013_10.addLayer(layer_VigiguaMaro2013_10);
+
+        bounds_group.addLayer(layer_VigiguaMaro2013_10);
+        function pop_VigiguaJaneiro2013_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_VigiguaJaneiro2013_11_0() {
+            return {
+                pane: 'pane_VigiguaJaneiro2013_11',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_VigiguaJaneiro2013_11');
+        map.getPane('pane_VigiguaJaneiro2013_11').style.zIndex = 411;
+        map.getPane('pane_VigiguaJaneiro2013_11').style['mix-blend-mode'] = 'normal';
+        var layer_VigiguaJaneiro2013_11 = new L.geoJson(json_VigiguaJaneiro2013_11, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_VigiguaJaneiro2013_11',
+            onEachFeature: pop_VigiguaJaneiro2013_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_VigiguaJaneiro2013_11_0(feature));
+            },
+        });
+        var cluster_VigiguaJaneiro2013_11 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_VigiguaJaneiro2013_11.addLayer(layer_VigiguaJaneiro2013_11);
+
+        bounds_group.addLayer(layer_VigiguaJaneiro2013_11);
+        function pop_UnidadesBasicasdesade_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UnidadesBasicasdesade_12_0() {
+            return {
+                pane: 'pane_UnidadesBasicasdesade_12',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/amenity=hospital.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_UnidadesBasicasdesade_12');
+        map.getPane('pane_UnidadesBasicasdesade_12').style.zIndex = 412;
+        map.getPane('pane_UnidadesBasicasdesade_12').style['mix-blend-mode'] = 'normal';
+        var layer_UnidadesBasicasdesade_12 = new L.geoJson(json_UnidadesBasicasdesade_12, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_UnidadesBasicasdesade_12',
+            onEachFeature: pop_UnidadesBasicasdesade_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_UnidadesBasicasdesade_12_0(feature));
+            },
+        });
+        var cluster_UnidadesBasicasdesade_12 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_UnidadesBasicasdesade_12.addLayer(layer_UnidadesBasicasdesade_12);
+
+        bounds_group.addLayer(layer_UnidadesBasicasdesade_12);
+        function pop_PlanoDiretorMunicpal_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PlanoDiretorMunicpal_13_0() {
+            return {
+                pane: 'pane_PlanoDiretorMunicpal_13',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(234,171,116,1.0)',
+            }
+        }
+        map.createPane('pane_PlanoDiretorMunicpal_13');
+        map.getPane('pane_PlanoDiretorMunicpal_13').style.zIndex = 413;
+        map.getPane('pane_PlanoDiretorMunicpal_13').style['mix-blend-mode'] = 'normal';
+    var layer_PlanoDiretorMunicpal_13 = new L.geoJson(json_PlanoDiretorMunicpal_13, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_PlanoDiretorMunicpal_13',
+        onEachFeature: pop_PlanoDiretorMunicpal_13,
+        style: style_PlanoDiretorMunicpal_13_0,
+    });
+        bounds_group.addLayer(layer_PlanoDiretorMunicpal_13);
+        function pop_ParadasdenibusBernadeth_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ParadasdenibusBernadeth_14_0() {
+            return {
+                pane: 'pane_ParadasdenibusBernadeth_14',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/highway=bus_stop.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_ParadasdenibusBernadeth_14');
+        map.getPane('pane_ParadasdenibusBernadeth_14').style.zIndex = 414;
+        map.getPane('pane_ParadasdenibusBernadeth_14').style['mix-blend-mode'] = 'normal';
+        var layer_ParadasdenibusBernadeth_14 = new L.geoJson(json_ParadasdenibusBernadeth_14, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_ParadasdenibusBernadeth_14',
+            onEachFeature: pop_ParadasdenibusBernadeth_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ParadasdenibusBernadeth_14_0(feature));
+            },
+        });
+        var cluster_ParadasdenibusBernadeth_14 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_ParadasdenibusBernadeth_14.addLayer(layer_ParadasdenibusBernadeth_14);
+
+        bounds_group.addLayer(layer_ParadasdenibusBernadeth_14);
+        function pop_ParadasdenibusAvPelotas_15(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ParadasdenibusAvPelotas_15_0() {
+            return {
+                pane: 'pane_ParadasdenibusAvPelotas_15',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/highway=bus_stop.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_ParadasdenibusAvPelotas_15');
+        map.getPane('pane_ParadasdenibusAvPelotas_15').style.zIndex = 415;
+        map.getPane('pane_ParadasdenibusAvPelotas_15').style['mix-blend-mode'] = 'normal';
+        var layer_ParadasdenibusAvPelotas_15 = new L.geoJson(json_ParadasdenibusAvPelotas_15, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_ParadasdenibusAvPelotas_15',
+            onEachFeature: pop_ParadasdenibusAvPelotas_15,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ParadasdenibusAvPelotas_15_0(feature));
+            },
+        });
+        var cluster_ParadasdenibusAvPelotas_15 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_ParadasdenibusAvPelotas_15.addLayer(layer_ParadasdenibusAvPelotas_15);
+
+        bounds_group.addLayer(layer_ParadasdenibusAvPelotas_15);
+        function pop_ParadasdenibusCassino_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ParadasdenibusCassino_16_0() {
+            return {
+                pane: 'pane_ParadasdenibusCassino_16',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/highway=bus_stop.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_ParadasdenibusCassino_16');
+        map.getPane('pane_ParadasdenibusCassino_16').style.zIndex = 416;
+        map.getPane('pane_ParadasdenibusCassino_16').style['mix-blend-mode'] = 'normal';
+        var layer_ParadasdenibusCassino_16 = new L.geoJson(json_ParadasdenibusCassino_16, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_ParadasdenibusCassino_16',
+            onEachFeature: pop_ParadasdenibusCassino_16,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ParadasdenibusCassino_16_0(feature));
+            },
+        });
+        var cluster_ParadasdenibusCassino_16 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_ParadasdenibusCassino_16.addLayer(layer_ParadasdenibusCassino_16);
+
+        bounds_group.addLayer(layer_ParadasdenibusCassino_16);
+        function pop_ParadasdenibusPortugal_17(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ParadasdenibusPortugal_17_0() {
+            return {
+                pane: 'pane_ParadasdenibusPortugal_17',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/highway=bus_stop.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_ParadasdenibusPortugal_17');
+        map.getPane('pane_ParadasdenibusPortugal_17').style.zIndex = 417;
+        map.getPane('pane_ParadasdenibusPortugal_17').style['mix-blend-mode'] = 'normal';
+        var layer_ParadasdenibusPortugal_17 = new L.geoJson(json_ParadasdenibusPortugal_17, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_ParadasdenibusPortugal_17',
+            onEachFeature: pop_ParadasdenibusPortugal_17,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ParadasdenibusPortugal_17_0(feature));
+            },
+        });
+        var cluster_ParadasdenibusPortugal_17 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_ParadasdenibusPortugal_17.addLayer(layer_ParadasdenibusPortugal_17);
+
+        bounds_group.addLayer(layer_ParadasdenibusPortugal_17);
+        function pop_Praas_18(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Praas_18_0() {
+            return {
+                pane: 'pane_Praas_18',
+        rotationAngle: 0.00872665,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/tourist_view_point.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_Praas_18');
+        map.getPane('pane_Praas_18').style.zIndex = 418;
+        map.getPane('pane_Praas_18').style['mix-blend-mode'] = 'normal';
+        var layer_Praas_18 = new L.geoJson(json_Praas_18, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Praas_18',
+            onEachFeature: pop_Praas_18,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Praas_18_0(feature));
+            },
+        });
+        var cluster_Praas_18 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_Praas_18.addLayer(layer_Praas_18);
+
+        bounds_group.addLayer(layer_Praas_18);
+        function pop_LinhasdenibusPolivalentePortugal_19(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LinhasdenibusPolivalentePortugal_19_0() {
+            return {
+                pane: 'pane_LinhasdenibusPolivalentePortugal_19',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LinhasdenibusPolivalentePortugal_19');
+        map.getPane('pane_LinhasdenibusPolivalentePortugal_19').style.zIndex = 419;
+        map.getPane('pane_LinhasdenibusPolivalentePortugal_19').style['mix-blend-mode'] = 'normal';
+    var layer_LinhasdenibusPolivalentePortugal_19 = new L.geoJson(json_LinhasdenibusPolivalentePortugal_19, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_LinhasdenibusPolivalentePortugal_19',
+        onEachFeature: pop_LinhasdenibusPolivalentePortugal_19,
+        style: style_LinhasdenibusPolivalentePortugal_19_0,
+    });
+        bounds_group.addLayer(layer_LinhasdenibusPolivalentePortugal_19);
+        function pop_LinhasdenibusCircularShopping_20(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LinhasdenibusCircularShopping_20_0() {
+            return {
+                pane: 'pane_LinhasdenibusCircularShopping_20',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LinhasdenibusCircularShopping_20');
+        map.getPane('pane_LinhasdenibusCircularShopping_20').style.zIndex = 420;
+        map.getPane('pane_LinhasdenibusCircularShopping_20').style['mix-blend-mode'] = 'normal';
+    var layer_LinhasdenibusCircularShopping_20 = new L.geoJson(json_LinhasdenibusCircularShopping_20, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_LinhasdenibusCircularShopping_20',
+        onEachFeature: pop_LinhasdenibusCircularShopping_20,
+        style: style_LinhasdenibusCircularShopping_20_0,
+    });
+        bounds_group.addLayer(layer_LinhasdenibusCircularShopping_20);
+        function pop_LinhasdenibusCircularCidadeNova_21(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LinhasdenibusCircularCidadeNova_21_0() {
+            return {
+                pane: 'pane_LinhasdenibusCircularCidadeNova_21',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LinhasdenibusCircularCidadeNova_21');
+        map.getPane('pane_LinhasdenibusCircularCidadeNova_21').style.zIndex = 421;
+        map.getPane('pane_LinhasdenibusCircularCidadeNova_21').style['mix-blend-mode'] = 'normal';
+    var layer_LinhasdenibusCircularCidadeNova_21 = new L.geoJson(json_LinhasdenibusCircularCidadeNova_21, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_LinhasdenibusCircularCidadeNova_21',
+        onEachFeature: pop_LinhasdenibusCircularCidadeNova_21,
+        style: style_LinhasdenibusCircularCidadeNova_21_0,
+    });
+        bounds_group.addLayer(layer_LinhasdenibusCircularCidadeNova_21);
+        function pop_LinhasdenibusBuarquedeMacedo_22(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LinhasdenibusBuarquedeMacedo_22_0() {
+            return {
+                pane: 'pane_LinhasdenibusBuarquedeMacedo_22',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LinhasdenibusBuarquedeMacedo_22');
+        map.getPane('pane_LinhasdenibusBuarquedeMacedo_22').style.zIndex = 422;
+        map.getPane('pane_LinhasdenibusBuarquedeMacedo_22').style['mix-blend-mode'] = 'normal';
+    var layer_LinhasdenibusBuarquedeMacedo_22 = new L.geoJson(json_LinhasdenibusBuarquedeMacedo_22, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_LinhasdenibusBuarquedeMacedo_22',
+        onEachFeature: pop_LinhasdenibusBuarquedeMacedo_22,
+        style: style_LinhasdenibusBuarquedeMacedo_22_0,
+    });
+        bounds_group.addLayer(layer_LinhasdenibusBuarquedeMacedo_22);
+        function pop_LinhasdenibusBosque_23(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LinhasdenibusBosque_23_0() {
+            return {
+                pane: 'pane_LinhasdenibusBosque_23',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LinhasdenibusBosque_23');
+        map.getPane('pane_LinhasdenibusBosque_23').style.zIndex = 423;
+        map.getPane('pane_LinhasdenibusBosque_23').style['mix-blend-mode'] = 'normal';
+    var layer_LinhasdenibusBosque_23 = new L.geoJson(json_LinhasdenibusBosque_23, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_LinhasdenibusBosque_23',
+        onEachFeature: pop_LinhasdenibusBosque_23,
+        style: style_LinhasdenibusBosque_23_0,
+    });
+        bounds_group.addLayer(layer_LinhasdenibusBosque_23);
+        function pop_LinhasdenibusAvPelotas_24(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LinhasdenibusAvPelotas_24_0() {
+            return {
+                pane: 'pane_LinhasdenibusAvPelotas_24',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LinhasdenibusAvPelotas_24');
+        map.getPane('pane_LinhasdenibusAvPelotas_24').style.zIndex = 424;
+        map.getPane('pane_LinhasdenibusAvPelotas_24').style['mix-blend-mode'] = 'normal';
+    var layer_LinhasdenibusAvPelotas_24 = new L.geoJson(json_LinhasdenibusAvPelotas_24, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_LinhasdenibusAvPelotas_24',
+        onEachFeature: pop_LinhasdenibusAvPelotas_24,
+        style: style_LinhasdenibusAvPelotas_24_0,
+    });
+        bounds_group.addLayer(layer_LinhasdenibusAvPelotas_24);
+        function pop_LinhasdenibusBernadeth_25(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LinhasdenibusBernadeth_25_0() {
+            return {
+                pane: 'pane_LinhasdenibusBernadeth_25',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LinhasdenibusBernadeth_25');
+        map.getPane('pane_LinhasdenibusBernadeth_25').style.zIndex = 425;
+        map.getPane('pane_LinhasdenibusBernadeth_25').style['mix-blend-mode'] = 'normal';
+    var layer_LinhasdenibusBernadeth_25 = new L.geoJson(json_LinhasdenibusBernadeth_25, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_LinhasdenibusBernadeth_25',
+        onEachFeature: pop_LinhasdenibusBernadeth_25,
+        style: style_LinhasdenibusBernadeth_25_0,
+    });
+        bounds_group.addLayer(layer_LinhasdenibusBernadeth_25);
+        function pop_LinhasdenibusMangueira_26(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LinhasdenibusMangueira_26_0() {
+            return {
+                pane: 'pane_LinhasdenibusMangueira_26',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LinhasdenibusMangueira_26');
+        map.getPane('pane_LinhasdenibusMangueira_26').style.zIndex = 426;
+        map.getPane('pane_LinhasdenibusMangueira_26').style['mix-blend-mode'] = 'normal';
+    var layer_LinhasdenibusMangueira_26 = new L.geoJson(json_LinhasdenibusMangueira_26, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_LinhasdenibusMangueira_26',
+        onEachFeature: pop_LinhasdenibusMangueira_26,
+        style: style_LinhasdenibusMangueira_26_0,
+    });
+        bounds_group.addLayer(layer_LinhasdenibusMangueira_26);
+        function pop_EscolasPblicaseParticulares_27(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_EscolasPblicaseParticulares_27_0() {
+            return {
+                pane: 'pane_EscolasPblicaseParticulares_27',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/education_school.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_EscolasPblicaseParticulares_27');
+        map.getPane('pane_EscolasPblicaseParticulares_27').style.zIndex = 427;
+        map.getPane('pane_EscolasPblicaseParticulares_27').style['mix-blend-mode'] = 'normal';
+        var layer_EscolasPblicaseParticulares_27 = new L.geoJson(json_EscolasPblicaseParticulares_27, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_EscolasPblicaseParticulares_27',
+            onEachFeature: pop_EscolasPblicaseParticulares_27,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_EscolasPblicaseParticulares_27_0(feature));
+            },
+        });
+        var cluster_EscolasPblicaseParticulares_27 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_EscolasPblicaseParticulares_27.addLayer(layer_EscolasPblicaseParticulares_27);
+
+        bounds_group.addLayer(layer_EscolasPblicaseParticulares_27);
+        function pop_DrogariasMunicipais_28(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DrogariasMunicipais_28_0() {
+            return {
+                pane: 'pane_DrogariasMunicipais_28',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/shop=convenience.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_DrogariasMunicipais_28');
+        map.getPane('pane_DrogariasMunicipais_28').style.zIndex = 428;
+        map.getPane('pane_DrogariasMunicipais_28').style['mix-blend-mode'] = 'normal';
+        var layer_DrogariasMunicipais_28 = new L.geoJson(json_DrogariasMunicipais_28, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_DrogariasMunicipais_28',
+            onEachFeature: pop_DrogariasMunicipais_28,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_DrogariasMunicipais_28_0(feature));
+            },
+        });
+        var cluster_DrogariasMunicipais_28 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_DrogariasMunicipais_28.addLayer(layer_DrogariasMunicipais_28);
+
+        bounds_group.addLayer(layer_DrogariasMunicipais_28);
+        function pop_CadastrodeLogradouros_29(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CadastrodeLogradouros_29_0() {
+            return {
+                pane: 'pane_CadastrodeLogradouros_29',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_CadastrodeLogradouros_29');
+        map.getPane('pane_CadastrodeLogradouros_29').style.zIndex = 429;
+        map.getPane('pane_CadastrodeLogradouros_29').style['mix-blend-mode'] = 'normal';
+    var layer_CadastrodeLogradouros_29 = new L.geoJson(json_CadastrodeLogradouros_29, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_CadastrodeLogradouros_29',
+        onEachFeature: pop_CadastrodeLogradouros_29,
+        style: style_CadastrodeLogradouros_29_0,
+    });
+        bounds_group.addLayer(layer_CadastrodeLogradouros_29);
+        function pop_reasdeInterreseSocial_30(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? Autolinker.link(String(feature.properties['timestamp'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? Autolinker.link(String(feature.properties['begin'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? Autolinker.link(String(feature.properties['end'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? Autolinker.link(String(feature.properties['altitudeMode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? Autolinker.link(String(feature.properties['tessellate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['extrude'] !== null ? Autolinker.link(String(feature.properties['extrude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['visibility'] !== null ? Autolinker.link(String(feature.properties['visibility'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? Autolinker.link(String(feature.properties['drawOrder'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? Autolinker.link(String(feature.properties['icon'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['snippet'] !== null ? Autolinker.link(String(feature.properties['snippet'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_reasdeInterreseSocial_30_0() {
+            return {
+                pane: 'pane_reasdeInterreseSocial_30',
+                opacity: 1,
+                color: 'rgba(128,152,72,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(186,221,105,1.0)',
+            }
+        }
+        map.createPane('pane_reasdeInterreseSocial_30');
+        map.getPane('pane_reasdeInterreseSocial_30').style.zIndex = 430;
+        map.getPane('pane_reasdeInterreseSocial_30').style['mix-blend-mode'] = 'normal';
+    var layer_reasdeInterreseSocial_30 = new L.geoJson(json_reasdeInterreseSocial_30, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_reasdeInterreseSocial_30',
+        onEachFeature: pop_reasdeInterreseSocial_30,
+        style: style_reasdeInterreseSocial_30_0,
+    });
+        bounds_group.addLayer(layer_reasdeInterreseSocial_30);
+        function pop_AtrativosTristicos_31(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AtrativosTristicos_31_0() {
+            return {
+                pane: 'pane_AtrativosTristicos_31',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/accommodation_bed_and_breakfast.svg',
+            iconSize: [19.0, 19.0]
+        }),
+            }
+        }
+        map.createPane('pane_AtrativosTristicos_31');
+        map.getPane('pane_AtrativosTristicos_31').style.zIndex = 431;
+        map.getPane('pane_AtrativosTristicos_31').style['mix-blend-mode'] = 'normal';
+        var layer_AtrativosTristicos_31 = new L.geoJson(json_AtrativosTristicos_31, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_AtrativosTristicos_31',
+            onEachFeature: pop_AtrativosTristicos_31,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_AtrativosTristicos_31_0(feature));
+            },
+        });
+        var cluster_AtrativosTristicos_31 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_AtrativosTristicos_31.addLayer(layer_AtrativosTristicos_31);
+
+        bounds_group.addLayer(layer_AtrativosTristicos_31);
+        var title = new L.Control();
+        title.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info');
+            this.update();
+            return this._div;
+        };
+        title.update = function () {
+            this._div.innerHTML = '<h2>http://geotecnologiasrg.webnode.com/</h2>';
+        };
+        title.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{"OpenStreetMap": layer_OpenStreetMap_32,"Google Satellite": layer_GoogleSatellite_31,'<img src="legend/AtrativosTristicos_30.png" /> Atrativos Túristicos': layer_AtrativosTristicos_30,'<img src="legend/reasdeInterreseSocial_29.png" /> Áreas de Interrese Social': layer_reasdeInterreseSocial_29,'<img src="legend/Ruas_28.png" /> Ruas': layer_Ruas_28,'<img src="legend/DrogariasMunicipais_27.png" /> Drogarias Municipais': layer_DrogariasMunicipais_27,'<img src="legend/EscolasPblicaseParticulares_26.png" /> Escolas Públicas e Particulares': layer_EscolasPblicaseParticulares_26,'<img src="legend/Mangueira_25.png" /> Mangueira': layer_Mangueira_25,'<img src="legend/Bernadeth_24.png" /> Bernadeth': layer_Bernadeth_24,'<img src="legend/AvPelotas_23.png" /> Av.Pelotas': layer_AvPelotas_23,'<img src="legend/Bosque_22.png" /> Bosque': layer_Bosque_22,'<img src="legend/BuarquedeMacedo_21.png" /> Buarque de Macedo': layer_BuarquedeMacedo_21,'<img src="legend/CircularCidadeNova_20.png" /> Circular Cidade Nova': layer_CircularCidadeNova_20,'<img src="legend/CircularShopping_19.png" /> Circular Shopping': layer_CircularShopping_19,'<img src="legend/PolivalentePortugal_18.png" /> Polivalente Portugal': layer_PolivalentePortugal_18,'<img src="legend/Praas_17.png" /> Praças': layer_Praas_17,'<img src="legend/Portugal_16.png" /> Portugal': layer_Portugal_16,'<img src="legend/Cassino_15.png" /> Cassino': layer_Cassino_15,'<img src="legend/AvPelotas_14.png" /> Av.Pelotas': layer_AvPelotas_14,'<img src="legend/Bernadeth_13.png" /> Bernadeth': layer_Bernadeth_13,'<img src="legend/PlanoDiretorMunicpal_12.png" /> Plano Diretor Municpal': layer_PlanoDiretorMunicpal_12,'<img src="legend/UnidadesBasicasdesade_11.png" /> Unidades Basicas de saúde': layer_UnidadesBasicasdesade_11,'<img src="legend/Abril_2013_10.png" /> Abril_2013': layer_Abril_2013_10,'<img src="legend/Agosto_2013_9.png" /> Agosto_2013': layer_Agosto_2013_9,'<img src="legend/Janeiro_2013_8.png" /> Janeiro_2013': layer_Janeiro_2013_8,'<img src="legend/Julho_2013_7.png" /> Julho_2013': layer_Julho_2013_7,'<img src="legend/Junho_2013_6.png" /> Junho_2013': layer_Junho_2013_6,'<img src="legend/Dezembro_2013_5.png" /> Dezembro_2013': layer_Dezembro_2013_5,'<img src="legend/Maio_2013_4.png" /> Maio_2013': layer_Maio_2013_4,'<img src="legend/Maro_2013_3.png" /> Março_2013': layer_Maro_2013_3,'<img src="legend/LeptospiroseFevereiro2016_2.png" /> Leptospirose Fevereiro 2016': layer_LeptospiroseFevereiro2016_2,'<img src="legend/LeptospiroseMaro2015_1.png" /> Leptospirose Março 2015': layer_LeptospiroseMaro2015_1,'<img src="legend/LeptospiroseMaro2016_0.png" /> Leptospirose Março 2016': layer_LeptospiroseMaro2016_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/AtrativosTristicos_31.png" /> Atrativos Túristicos': cluster_AtrativosTristicos_31,'<img src="legend/reasdeInterreseSocial_30.png" /> Áreas de Interrese Social': layer_reasdeInterreseSocial_30,'<img src="legend/CadastrodeLogradouros_29.png" /> Cadastro de Logradouros': layer_CadastrodeLogradouros_29,'<img src="legend/DrogariasMunicipais_28.png" /> Drogarias Municipais': cluster_DrogariasMunicipais_28,'<img src="legend/EscolasPblicaseParticulares_27.png" /> Escolas Públicas e Particulares': cluster_EscolasPblicaseParticulares_27,'<img src="legend/LinhasdenibusMangueira_26.png" /> Linhas de Ônibus-Mangueira': layer_LinhasdenibusMangueira_26,'<img src="legend/LinhasdenibusBernadeth_25.png" /> Linhas de Ônibus-Bernadeth': layer_LinhasdenibusBernadeth_25,'<img src="legend/LinhasdenibusAvPelotas_24.png" /> Linhas de Ônibus-Av.Pelotas': layer_LinhasdenibusAvPelotas_24,'<img src="legend/LinhasdenibusBosque_23.png" /> Linhas de Ônibus-Bosque': layer_LinhasdenibusBosque_23,'<img src="legend/LinhasdenibusBuarquedeMacedo_22.png" /> Linhas de Ônibus-Buarque de Macedo': layer_LinhasdenibusBuarquedeMacedo_22,'<img src="legend/LinhasdenibusCircularCidadeNova_21.png" /> Linhas de Ônibus-Circular Cidade Nova': layer_LinhasdenibusCircularCidadeNova_21,'<img src="legend/LinhasdenibusCircularShopping_20.png" /> Linhas de Ônibus-Circular Shopping': layer_LinhasdenibusCircularShopping_20,'<img src="legend/LinhasdenibusPolivalentePortugal_19.png" /> Linhas de Ônibus-Polivalente Portugal': layer_LinhasdenibusPolivalentePortugal_19,'<img src="legend/Praas_18.png" /> Praças': cluster_Praas_18,'<img src="legend/ParadasdenibusPortugal_17.png" /> Paradas de Ônibus-Portugal': cluster_ParadasdenibusPortugal_17,'<img src="legend/ParadasdenibusCassino_16.png" /> Paradas de Ônibus-Cassino': cluster_ParadasdenibusCassino_16,'<img src="legend/ParadasdenibusAvPelotas_15.png" /> Paradas de Ônibus-Av.Pelotas': cluster_ParadasdenibusAvPelotas_15,'<img src="legend/ParadasdenibusBernadeth_14.png" /> Paradas de Ônibus-Bernadeth': cluster_ParadasdenibusBernadeth_14,'<img src="legend/PlanoDiretorMunicpal_13.png" /> Plano Diretor Municpal': layer_PlanoDiretorMunicpal_13,'<img src="legend/UnidadesBasicasdesade_12.png" /> Unidades Basicas de saúde': cluster_UnidadesBasicasdesade_12,'<img src="legend/VigiguaJaneiro2013_11.png" />  Vigiágua-Janeiro_2013': cluster_VigiguaJaneiro2013_11,'<img src="legend/VigiguaMaro2013_10.png" />  Vigiágua-Março_2013': cluster_VigiguaMaro2013_10,'<img src="legend/VigiguaAbril2013_9.png" />  Vigiágua-Abril_2013': cluster_VigiguaAbril2013_9,'<img src="legend/VigiguaMaio2013_8.png" />  Vigiágua-Maio_2013': cluster_VigiguaMaio2013_8,'<img src="legend/VigiguaJunho2013_7.png" />  Vigiágua-Junho_2013': cluster_VigiguaJunho2013_7,'<img src="legend/VigiguaJulho2013_6.png" />  Vigiágua-Julho_2013': cluster_VigiguaJulho2013_6,'<img src="legend/VigiguaDezembro2013_5.png" />  Vigiágua-Dezembro_2013': cluster_VigiguaDezembro2013_5,'<img src="legend/VigiguaAgosto2013_4.png" />  Vigiágua-Agosto_2013': cluster_VigiguaAgosto2013_4,'<img src="legend/VigilnciaAmbientalExogenaMaro2016_3.png" />  Vigilância Ambiental-Exogena Março 2016': cluster_VigilnciaAmbientalExogenaMaro2016_3,'<img src="legend/VigilnciaAmbientalLeptospiroseFevereiro2016_2.png" />  Vigilância Ambiental-Leptospirose Fevereiro 2016': cluster_VigilnciaAmbientalLeptospiroseFevereiro2016_2,'<img src="legend/VigilnciaAmbientalLeptospiroseMaro2015_1.png" />  Vigilância Ambiental-Leptospirose Março 2015': cluster_VigilnciaAmbientalLeptospiroseMaro2015_1,'<img src="legend/VigilnciaAmbientalLeptospiroseMaro2016_0.png" />  Vigilância Ambiental-Leptospirose Março 2016': cluster_VigilnciaAmbientalLeptospiroseMaro2016_0,}).addTo(map);
         setBounds();
         </script>
     </body>
